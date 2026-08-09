@@ -1,64 +1,42 @@
 # Site settings
 course_name: Secure Internet of Things
 course_description: "
-The goal of the course is to bootstrap you into software security research. The
-course provides a complete overview of different aspects of software security and
+The goal of the course is to learn necessary concepte to design secure IoT systems. The
+course covers basic techniques for threat modeling and security analysis of practical IoT systems.
+The course provides a complete overview of different aspects of security (primarily software security) and
 standard techniques used to solve various software security problems. We discuss
-generic techniques such as Data flow analysis/ type inference/ dynamic analysis
-that are also needed to perform research in other areas such as Software engineering
-and program analysis.
-The course is composed of four components: (i) Vulnerability Finding, (ii) Automated Patching, (iii) Patch Propagation, and (iv) Vulnerability Prevention.
-<ul>
-<li>Vulnerability Finding: We understand the basics of vulnerability finding techniques: Static analysis
-(Pattern-based/ Dataflow based/ Type-based/DSL based), Dynamic Analysis (Different Flavors of Fuzzing
-and dynamic symbolic execution), Machine Learning, and a combination of all the above.</li>
+generic techniques and try to apply them to IoT systems.
 
-<li>Automated Patching: Automated Program repair techniques: Pattern-based/ Dynamic analysis based/ Machine learning etc.</li>
+For every concept, we will start with basics and specialize them to IoT systems."
 
-<li>Patch Propagation: Understanding the problem of propagating patches caused by software diversity
-and potential solutions.</li>
-
-<li>Vulnerability Prevention: Type-safe languages (Rust, Go, etc.), Retrofitting techniques (Sanitizers: ASAN, etc.),
-Type-safe dialects (Checked C/Cyclone/etc.).</li>
-</ul>
-
-For every component, we will start with basics and cover the state-of-the-art techniques.
-We will also be reading research papers and try to analyze the pros and cons critically."
 evaluation: "
 We will use the following distribution for grading:
 <ul>
-  <li>Three assignments (10% each, Total: 30%).</li>
-  <li>Midterm 1 (10%).</li>
-  <li>Midterm 2 (10%).</li>
-  <li>Paper Presentation (10%).</li>
-  <li>Course Project (40%).</li>
-</ul>
-This is a project-heavy course with more than two-third of the grade depends on the successful
-completion of the project.
-"
-course_project: "The goal of the course project is to enable students to experience various aspects of
-software security research.  The result of the project will be a conference-style presentation.
-This is a semester-long project and is recommended to be done in groups of up to three students.
-Each project group is expected to decide milestones and will receive grades based on the satisfactory
-completion of these milestones and the presentation. Potential project ideas are
-<a href=\"https://docs.google.com/spreadsheets/d/1zi06Xj4aF8KSJ6bC97aFQ-qZlR5FaKzPJZTr7KJghSY/edit?usp=sharing\">here</a>.
-Although, students can pick a project of their choice after discussing it with the professor."
+  <li>Four assignments (7% each, Total: 28%).</li>
+  <li>Three Homeworks (30%).</li>
+  <li>Midterm (20%).</li>
+  <li>Final (20%).</li>
+  <li>Class Participation (2%).</li>
+</ul>"
 
-course_prereqs: "This is a hands-on graduate-level course, with most of the assignments involves writing C/C++ code.
-I am expecting the students to have the following background:
+
+course_prereqs: "This is a hands-on course and I expect students to be confortable with programming in Python and have basic understanding of software engineering.
 <ul>
-    <li>Should be very comfortable with writing C/C++ code: We will be working with clang/LLVM, which requires considerable experience with C/C++ codebases.</li>
-    <li>Should be comfortable with operating system concepts, especially: Process Isolation, Memory Management (Virtual memory/Demand paging), Processor privilege levels (e.g., x86 Rings: 0-3).</li>
+    <li>ECE 30861.</li>
+    <li>ECE 36200.</li>
+    <li>ECE 40400 (concurrent).</li>
     <li>Knowledge about basic software security concepts such as buffer overflows, return-oriented programming, etc.</li>
 </ul>"
 
-learning_objectives: "This course is aimed at introducing students to various aspects of software security research.
+learning_objectives: "This course is aimed at introducing students to designing of Secure IoT systems.
 After finishing the course, the students should:
 <ul>
-   <li>Have a good understanding of software security problems at various stages of software development and deployment.</li>
-   <li>Have a good understanding of principles behind solving various software security problems.</li>
-   <li>Have the ability to use state-of-the art tools to implement software security solutions.</li>
-   <li>Have the ability to systematically solve system security problems.</li>
+    <li>Describe security challenges concerning communication, protecting on-device data, tampering, and attestation in real-world IoT systems.</li>
+    <li>Can identify and describe the security threats prevented by using edge computing in IoT systems.</li>
+    <li>Apply security design principles, specifically certificate-based authentication and role-based access control, to enable authenticated access to IoT devices.</li>
+    <li>Describe and identify security standards and ethics (ISO/IEC, NIST, Cybersecurity Improvement Act) related to the design of IoT systems.</li>
+    <li>Given a description and requirements of a system, students can create it with a given set of IoT devices (2-3) and sensors (1-2) using a computing platform (e.g., Amazon AWS, Azure).</li>
+    <li>Given specific requirements, students are able to develop secure (with respect to secure data transmission, local data processing, and integration with cloud services) IoT applications that can span a single device or multiple devices (2-3), depending on the requirements.</li>
 </ul>
 "
 
@@ -73,7 +51,7 @@ don't hesitate to ask the instructor or the TA. <br/>
 
 As a short summary: (i) you are expected to attend all classes (modulo good reasons),
 (ii) you are supposed to hand in all work before the deadlines (there's a 10% point reduction per day for late hand-ins),
-(iii) if you need special treatment or have special circumstances, talk to the instructor or TA (if there exists one). - Copied from Prof.Payers course."
+(iii) if you need special treatment or have special circumstances, talk to the instructor or TA. - Copied from Prof.Payers course."
 
 course_semester: "Fall 2026"
 

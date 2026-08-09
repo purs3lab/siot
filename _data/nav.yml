@@ -7,12 +7,8 @@ items:
   name: Schedule
   icon_class: fas fa-calendar-alt
 
-- url: /lectures/
-  name: Lectures
-  icon_class: fas fa-book-reader
-
 - url: /assignments/
-  name: Project
+  name: Assignments
   icon_class: fas fa-user-graduate
 
 - url: /materials/

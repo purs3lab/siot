@@ -1,14 +1,11 @@
 ---
 type: exam
-date: 2025-11-21T08:00:00+3:30
-description: 'Midterm 2.'
+date: 2026-12-14T08:00:00+3:30
+description: 'Finals.'
 hide_from_announcments: true
 ---
 **Topics:**
-- Vulnerability Detection - Best effort.
-- Vulnerability Prevention and Checked C.
-- Automated Patching.
-- Patch Propagation.
+- TBA
 
 **Style:**
 - On paper --- old style.
@@ -17,4 +14,3 @@ hide_from_announcments: true
 - Multiple choice.
 - Descriptive.
 - Fill in the blanks.
-- Open ended.
