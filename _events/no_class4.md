@@ -1,6 +1,6 @@
 ---
 type: noclass
-date: 2025-11-26T08:00:00+3:30
+date: 2026-11-25T08:00:00+3:30
 description: 'Thanksgiving Break'
 hide_from_announcments: true
 ---
