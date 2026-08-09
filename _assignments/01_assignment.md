@@ -1,14 +1,13 @@
 ---
 type: assignment
-date: 2025-09-06T8:00:00+4:30
-title: 'Assignment #1 - LLVM Playground'
-part1: /static_files/assignments/llvmplayground/part1.pdf
-part2: /static_files/assignments/llvmplayground/part2.pdf
-part3: /static_files/assignments/llvmplayground/part3.pdf
-part4: /static_files/assignments/llvmplayground/part4.pdf
+date: 2026-01-13T8:00:00+4:30
+enable: yes
+title: 'Lab #1 - Booting a PC'
 due_event: 
     type: due
-    date: 2025-10-03T23:59:00+3:30
-    description: 'Assignment #1 due'
+    enable: yes
+    date: 2026-01-23T23:59:00+3:30
+    description: 'Lab #1 due'
 ---
-In this assignment you will write various analyses using LLVM. Look into the Brightspace for how to submit all parts in a single submission.
+
+This is part 1 (change the name and the due date)

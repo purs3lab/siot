@@ -1,11 +1,13 @@
 ---
 type: assignment
-date: 2025-10-26T8:00:00+4:30
-title: 'Assignment #3 - CodeQL Playground and Real World Bug Finding'
-pdf: /static_files/assignments/codeqlplayground/codeql.pdf
+date: 2026-02-12T8:00:00+4:30
+enable: yes
+title: 'Lab #3 - User Environments'
 due_event:
     type: due
-    date: 2025-11-24T23:59:00+3:30
-    description: 'Assignment #3 due'
+    enable: yes
+    date: 2026-03-06T23:59:00+3:30
+    description: 'Lab #3 due'
 ---
-In this assignment, you will write CodeQL queries and run them on large codebases and analyze the results. You will also experience a flavor of real-world bug finding.
+
+Part 3

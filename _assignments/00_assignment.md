@@ -1,11 +1,13 @@
 ---
 type: assignment
-date: 2025-08-25T8:00:00+4:30
-title: 'Assignment #0 - Self Assessment'
-pdf: /static_files/assignments/assignment0.pdf
+date: 2026-08-24T8:00:00+4:30
+enable: yes
+title: 'Lab #0 - Setup'
 due_event: 
     type: due
-    date: 2025-08-29T23:59:00+3:30
-    description: 'Assignment #0 due'
+    enable: yes
+    date: 2026-08-28T23:59:00+3:30
+    description: 'Lab #0 due'
 ---
-This is a self assessment to understand your preparedness for this course!
+
+What do we need to get setup?
