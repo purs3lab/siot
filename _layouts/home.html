@@ -6,8 +6,11 @@ layout: default
 
     <h1>{{ site.course_name }} <span style="font-size: 20px;color: #0006;">/ {{ site.course_semester }} </span></h1>
 
+    {% comment %} Updates box disabled; re-enable by uncommenting the include below. {% endcomment %}
+    {% comment %}
     {% include announcements.html %}
     <br />
+    {% endcomment %}
 
     <h2><b>Course Description</b></h2>
     <p>{{ site.course_description }}</p>
