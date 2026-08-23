@@ -21,8 +21,9 @@ You are not required to purchase from the given links. But make sure you buy the
 - F/M wires - [https://www.adafruit.com/product/1954](https://www.adafruit.com/product/1954)  
 - 2 x I2C 1602 LCD - [https://a.co/d/0gvIQbVn](https://a.co/d/0gvIQbVn)  
 - 2 x 4 x 4 keypad - [https://a.co/d/06ZlNiY5](https://a.co/d/06ZlNiY5)  
+- 2 x Micro usb cable - [https://a.co/d/0edLVa0k](https://a.co/d/0edLVa0k)  
 
-Note that the above link for the keypad is for a pack of two. So if using that link, only purchase one item.
+Note that the link above for the keypad and micro USB cable is for a pack of two. So if you use that link, only purchase one item.
 
 For this course, we will be using Raspberry Pi Pico 2 W as our IoT device and MicroPython as the language to program the board. The setup shown here is for linux machines. But most of it should remain the same for Windows as well.
 
@@ -42,7 +43,7 @@ This is the small white button next to the Micro-USB connector on the board.
     - The board will appear as a USB storage device named something like RP2350 in your file explorer.
 ![mass storage](00_img/setup/usbstorage.png)
 
-    ##### Troubleshooting
+##### Troubleshooting
     - If the board doesn’t show up, check your USB cable. If the cable is power only, it will not work.
 
 2. Download MicroPython Firmware
