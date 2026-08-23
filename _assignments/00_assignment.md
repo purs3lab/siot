@@ -10,7 +10,21 @@ due_event:
     description: 'Lab #0 due'
 ---
 
-For this course, we will be using Raspberry Pico 2 W as our IoT device and MicroPython as the language to program the board. The setup shown here is for linux machines. But most of it should remain the same for Windows as well.
+### Required components
+
+You will need to buy the following components to complete all the labs in the course. Note that you won't need all of them for part0. But we suggest buying everything together.  
+You are not required to purchase from the given links. But make sure you buy the same component.
+
+- 2 x Raspberry Pi Pico 2 W - https://www.adafruit.com/product/6315  
+- 1 x Breadboard - https://www.adafruit.com/product/239  
+- M/M wires - https://www.adafruit.com/product/153  
+- F/F wires - https://www.adafruit.com/product/1950  
+- 2 x I2C 1602 LCD - https://a.co/d/0gvIQbVn  
+- 2 x 4 x 4 keypad - https://a.co/d/06ZlNiY5  
+
+Note that the above link for the keypad is for a pack of two. So if using that link, only purchase one item.
+
+For this course, we will be using Raspberry Pi Pico 2 W as our IoT device and MicroPython as the language to program the board. The setup shown here is for linux machines. But most of it should remain the same for Windows as well.
 
 The instructions are divided into 3 steps:
 - [Setup](#setup)
