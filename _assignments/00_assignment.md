@@ -43,9 +43,6 @@ This is the small white button next to the Micro-USB connector on the board.
     - The board will appear as a USB storage device named something like RP2350 in your file explorer.
 ![mass storage](00_img/setup/usbstorage.png)
 
-##### Troubleshooting
-    - If the board doesn’t show up, check your USB cable. If the cable is power only, it will not work.
-
 2. Download MicroPython Firmware
     - Go to the official [MicroPython firmware page for the Pico 2 W](https://micropython.org/download/RPI_PICO2_W/). Make sure you use the `_W` (wireless) page and not the plain `RPI_PICO2` page, they are different builds, and only the `_W` build includes WiFi/Bluetooth support, which later parts of this course depend on.
     - Download the latest .uf2 file from the “Firmware” section, **not** from the “Firmware (RISC-V CPU mode)” section. We’ll be using the ARM version for this project.
