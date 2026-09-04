@@ -10,7 +10,7 @@ due_event:
     description: 'Lab #1 due'
 ---
 
-This step will help you get familiar with using a cryptographic function to hash data that is stored locally on the Pico.
+This step will help you get familiar with using a cryptographic function to hash data that is stored locally on the Pico. You can find the starter code for this part [here](https://github.com/purs3lab/ECE59500-130-iot/tree/part1).
 
 ### Required components
 
@@ -38,7 +38,7 @@ If `i2c.scan()` finds nothing, double check wiring first (SDA/SCL not swapped, G
 If the scan *does* find the LCD's address (e.g. `0x27`) but any write raises `OSError: [Errno 5] EIO`, the LCD itself is not necessarily broken. This has been observed with some kits' LCD backpacks: the Pico's hardware I2C peripheral (`machine.I2C`) is stricter about signal timing than a software (bit-banged) implementation, and a marginal connection (e.g. weak pull-ups on the backpack plus breadboard capacitance) that's enough for the short address-ACK to succeed can still make the fuller data-write transaction fail. Swapping `machine.I2C` for `machine.SoftI2C` (same constructor args) in `init.py`/`main.py` has resolved this in testing, at the cost of slower, CPU-driven I2C instead of the RP2040's dedicated hardware peripheral. If you hit this, try that swap before assuming the LCD is defective.
 
 *The LCD is required for this part. The lock's status and prompts are shown on it, not printed to the REPL.*  
-Code to interact with the LCD is [here](part1_starter_code/lcd.py)
+Code to interact with the LCD is at part1_starter_code/lcd.py.
 
 ### What you need to build
 The starter code intentionally does not include the storage/input layer in `common.py`. You're expected to build it yourself. At minimum, you'll need to implement:
@@ -64,7 +64,7 @@ _**Note:** You're free to use any hash function for this assignment (e.g. `sha25
 
 > **Q2.** Why shouldn't the PIN be stored in plaintext? And given we're already hashing it, why do we still need a salt on top of that? Think about what an attacker could do with a copy of `pin_store.json` in each of these three cases: plaintext, hash only, salted hash.
 
-You can find the starter code for this phase [here](part1_starter_code/init_phase/init.py).
+You can find the starter code for this phase at part1_starter_code/init_phase/init.py.
 
 An additional functionality you need to implement is what happens when a user tries to change a pin when there is already a pin stored locally.
 In this case, the user must authenticate with the original PIN before changing it.  
@@ -84,13 +84,16 @@ This step simulates the normal operational phase that a smart lock might go thro
     - Device automatically locks after a delay
 - If incorrect, an error message is shown on the LCD (We will add more functionality for this case in later steps)
 
-You can find the starter code for this phase [here](part1_starter_code/normal_phase/main.py). Note that the file is named `main.py` intentionally so that each time the board is turned on, this code will be run.
+You can find the starter code for this phase at part1_starter_code/normal_phase/main.py. Note that the file is named `main.py` intentionally so that each time the board is turned on, this code will be run.
 
 Typical flow of operations is shown below:
 
 ![Normal Phase](01_img/normal/iot_part1_normal_phase.png)
 
 Since we named this file `main.py`, when you disconnect and reconnect the pico, this file should be run by default. If it does not, make sure you manually disconnect the pico from vscode using `Ctrl + Shift + P`, typing in `MicroPico: Disconnect` and selecting it while the pico is plugged in. Else it will automatically spawn the REPL window waiting for an input rather than running your script.
+
+### Hand-In Procedure
+You will turn in your assignments through Brightspace. The submission should be a zip file containing all the files that are required to run your code and a README.md explaining how to do it.
 
 #### Image credits
 [1] https://shop.cretechs.in/product/4x4-matrix-membrane-type-keypad-16-keys/  
