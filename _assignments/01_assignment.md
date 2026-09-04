@@ -10,13 +10,12 @@ due_event:
     description: 'Lab #1 due'
 ---
 
-This step will help you get familiar with using a cryptographic function to hash data that is stored locally on the Pico. You can find the starter code for this part [here](https://github.com/purs3lab/ECE59500-130-iot/tree/part1).
+This step will help you get familiar with using a cryptographic function to hash data that is stored locally on the Pico. You can find the starter code for this part [here](https://github.com/purs3lab/ECE59500-130-iot/tree/part1). Submit an `answers.txt` file with answers to the descriptive questions that you will find throughout this part (Q1 and Q2).
 
 ### Required components
 
 You will need the following components:
 - 1 × 4 × 4 keypad
-- 10+ Jumper wires
 - I2C LCD 1602
 
 No external pull-down resistors are needed for the keypad - the columns are wired directly into GPIO pins configured with the Pico's internal pull-down (`machine.Pin.PULL_DOWN`).
@@ -93,7 +92,7 @@ Typical flow of operations is shown below:
 Since we named this file `main.py`, when you disconnect and reconnect the pico, this file should be run by default. If it does not, make sure you manually disconnect the pico from vscode using `Ctrl + Shift + P`, typing in `MicroPico: Disconnect` and selecting it while the pico is plugged in. Else it will automatically spawn the REPL window waiting for an input rather than running your script.
 
 ### Hand-In Procedure
-You will turn in your assignments through Brightspace. The submission should be a zip file containing all the files that are required to run your code and a README.md explaining how to do it.
+You will turn in your assignments through Brightspace. The submission should be a zip file containing all the files that are required to run your code, a README.md explaining how to do it and the `answers.txt`.
 
 #### Image credits
 [1] https://shop.cretechs.in/product/4x4-matrix-membrane-type-keypad-16-keys/  
