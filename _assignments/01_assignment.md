@@ -1,11 +1,11 @@
 ---
 type: assignment
 date: 2026-09-04T8:00:00+4:30
-enable: no
+enable: yes
 title: 'Lab #1 - Non-smart lock'
 due_event: 
     type: due
-    enable: no
+    enable: yes
     date: 2026-09-18T23:59:00+3:30
     description: 'Lab #1 due'
 ---
