@@ -5,6 +5,6 @@ title: Threat Modeling
 tldr: "Identifying threats."
 thumbnail: /static_files/presentations/staticanalysis.jpeg
 links:
-    - url: /static_files/presentations/week2day1.pdf
+    - url: /static_files/presentations/threatmodeling.pdf
       name: slides
 ---
