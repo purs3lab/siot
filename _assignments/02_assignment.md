@@ -12,7 +12,7 @@ due_event:
 
 # The controller
 
-You can find the starter code for this part [here](https://github.com/purs3lab/ECE59500-130-iot/tree/part2). Submit an `answers.txt` file with answers to the descriptive questions that you will find throughout this part (Q1 to Q7).
+You can find the starter code for this part [here](https://github.com/purs3lab/ECE59500-130-iot/tree/part2). Submit an `answers.txt` file with answers to the descriptive questions that you will find throughout this part (Q1 to Q8).
 
 Currently, the only way to unlock the system is to manually enter the PIN on the keypad. But what if you wanted to unlock it without needing a PIN? This is where the controller comes in. Instead of entering a PIN, you will use a pre-authorized device that can be used to unlock the system when you are within a certain Bluetooth range.
 
@@ -258,6 +258,14 @@ Instead, "in range" here is judged from **GATT connection health** - a periodic 
 Everything this page displays that didn't originate as a hardcoded string in your own source - device names typed during pairing, status/error text - should be assumed to have come from an untrusted source by the time you're rendering it (a name is chosen by whoever is pairing, not validated by the browser). Build DOM structure normally, then assign user-influenced values via `textContent` (or element properties), never by interpolating them into an `innerHTML` string.
 
 > **Q7.** Why does it matter whether you assign an untrusted string via `textContent` versus interpolating it into an `innerHTML` string? What could an attacker achieve by choosing a crafted device/display name, if this page ever rendered names that way?
+
+### Threat modeling with STRIDE and MITRE ATT&CK
+
+STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege), from lecture, categorizes *what kind* of threat you're looking at. [MITRE ATT&CK](https://attack.mitre.org/) answers a different question: *how would a real adversary actually pull it off*, via concrete **Techniques** (`T####`) grouped into **Tactics** (Initial Access, Credential Access, Impact, etc.). The two aren't redundant, and part of this exercise is noticing where ATT&CK's enterprise-network vocabulary doesn't cleanly cover a standalone embedded device.
+
+> **Q8.** For each attack surface - [Pairing](#pairing), [Unlock](#unlock), [Mobile webapp](#mobile-webapp) - build a table with one row per STRIDE category: a concrete threat specific to that surface (not a restatement of the category), its mitigation in this design (cite where, or write "unmitigated"), and a matching [ATT&CK technique ID](https://attack.mitre.org/) (Mobile matrix for the webapp, Enterprise for Pairing/Unlock) - or "no technique fits" with one sentence why.
+>
+> Requirements: at least two rows across all three tables must be unmitigated, and at least one of those beyond the relay attack from Q6.
 
 ### Hand-In Procedure
 You will turn in your assignments through Brightspace. The submission should be a zip file containing all the files that are required to run your code, a README.md explaining how to do it and the `answers.txt`.
