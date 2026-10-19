@@ -1,6 +1,6 @@
 ---
 type: assignment
-date: 2026-10-17T8:00:00-04:00
+date: 2026-10-19T8:00:00-04:00
 enable: yes
 title: 'Lab #3 - SmartLock V2'
 due_event: 
@@ -12,7 +12,7 @@ due_event:
 
 # Edge and Cloud
 
-You can find the starter code for this part [here](https://github.com/purs3lab/ECE59500-130-iot/tree/part3). Submit an `answers.txt` file with answers to the descriptive questions that you will find throughout this part (Q1 to Q12).
+You can find the starter code for this part [here](https://github.com/purs3lab/ECE59500-130-iot/tree/part3). Submit an `answers.txt` file with answers to the descriptive questions that you will find throughout this part (Q1 to Q13).
 
 In this step, we will add an edge and a cloud component to our setup. The circuit will remain the same as part1.  
 
@@ -32,6 +32,8 @@ We have divided this part into three:
 Once those three are working end to end, we add [device attestation](#attestation) on top, so `edge.py`/the dashboard can tell a genuine device's messages apart from anything else publishing to the shared broker.
 
 Finally, we replace part2's BLE controller with one that talks to the device through the cloud instead of directly - see [Controller-via-cloud](#controller-via-cloud).
+
+Once everything works, you threat-model the whole system with Threagile - see [Threat modeling with Threagile](#threat-modeling-with-threagile).
 
 ### MQTT
 
@@ -437,7 +439,47 @@ Unlike `locks` (only ever written by `edge.py` itself via the Admin SDK), `pairi
 A cloud controller can ask for a pairing or an unlock at any time, not just while someone happens to be standing at the keypad - so each lock runs a background task that polls `check_msg()` on its own schedule (`command_main()` in `main.py`), independent of keypad activity.
 
 
+### Threat modeling with Threagile
+
+In part2 (Q8) you did STRIDE + ATT&CK by hand for the BLE surfaces. This part added most of the system's actual trust boundaries - Pico -> broker, broker -> `edge.py`, `edge.py` -> Firestore, Firestore -> browser - so this time you'll model the whole system with a tool: [Threagile](https://threagile.io/). You describe the architecture (assets, data, trust boundaries, communication links) in a YAML file, and Threagile runs its rule set over it and generates a risk report and diagrams. Every risk it reports is tagged with a STRIDE category.
+
+#### Running it
+
+The starter code includes `threat_model/threagile.yaml`, a partially filled-in model of this system. Run Threagile with its Docker image from inside that folder:
+```sh
+cd threat_model
+# writes report.pdf, risks.xlsx, the diagrams, ... next to threagile.yaml
+docker run --rm -it -v "$(pwd)":/app/work threagile/threagile -verbose -model /app/work/threagile.yaml -output /app/work
+```
+The starter runs as-is, so try it before changing anything and look at `data-flow-diagram.png`. `-list-types` prints every allowed value for the enum fields (protocols, authentication types, risk statuses, ...):
+```sh
+docker run --rm -it threagile/threagile -list-types
+```
+
+**Keep your model's `title` at 31 characters or fewer.** Threagile uses it as an Excel sheet name; a longer title makes it fail while writing `risks.xlsx` (`the sheet name length exceeds the 31 characters limit`) and it never gets as far as generating `report.pdf`.
+
+#### What to model
+
+The starter already defines every technical asset, data asset and trust boundary, with their properties and CIA ratings. Each section starts with a commented template explaining every field. Adjust anything that doesn't match what you built. Every `TODO` is yours to complete:
+- **What each asset handles:** `data_assets_processed` and `data_assets_stored` for every technical asset - e.g. which keys and files actually live in a Pico's flash, or on the edge laptop.
+- **Communication links:** every link is stubbed out but commented out. Uncomment each one and set its real `protocol`, `authentication`, `authorization`, `readonly` flag, and the data assets it sends and receives. `Load Dashboard` is filled in as a worked example.
+
+Model what you *actually built*, not an idealized version - if a link is unauthenticated, say so in the model.
+
+#### Triaging the output
+
+Threagile generates risks automatically, and some will be noise for this setup. For every risk of **elevated** severity or higher, add a `risk_tracking` entry in your YAML with a status (`mitigated`, `accepted`, or `false-positive`) and a `justification` that cites where in your design it's handled (e.g. "device verifies ECDSA signature in `main.py` before unlocking") or why it doesn't apply. Then for each of those same risks, add the matching [MITRE ATT&CK technique ID](https://attack.mitre.org/) to the justification - or "no technique fits" with one sentence why. Threagile does not do this mapping for you.
+
+Each risk has a unique ID (e.g. `missing-hardening@pico-lock-1`) - it's the `ID` column in `risks.xlsx` and the small grey text under each risk in `report.pdf`. Use it as the `risk_tracking` key; a mistyped ID makes the analysis fail with "risk id not found". The comment above `risk_tracking:` in the starter explains the ID format, each status, and shows worked example entries. It also covers the `seed-risk-tracking` macro, which writes a skeleton entry for every risk so you don't have to type IDs by hand - but it rewrites the file and **deletes all comments**, so back up your model before running it.
+
+> **Q13.** Compare Threagile's output against your part2 Q8 tables. Name two risks Threagile surfaced that weren't on your radar, and one threat from your Q8 tables (or from this part's questions) that Threagile's model can't express at all. Why is it missing - what about that threat doesn't fit Threagile's assets-and-links view of the system?
+
+#### What to submit
+
+Include a `threat_model/` folder in your zip containing your `threagile.yaml`, `data-flow-diagram.png`, and `report.pdf`. **Check the YAML for secrets before zipping**.
+
+
 ### Hand-In Procedure
 > Note: This part also requires you to upload a video demonstrating your implementation. For each operation, the video must show both the webpage and the Pico. A single camera is fine: start on the device where the operation is initiated (the webpage or the Pico's buttons), perform it, then point the camera at the other device to show the result.
 
-You will turn in your assignments through Brightspace. The submission should be a zip file containing all the files that are required to run your code, a README.md explaining how to do it, the demo video and the `answers.txt`.
+You will turn in your assignments through Brightspace. The submission should be a zip file containing all the files that are required to run your code, a README.md explaining how to do it, the demo video, the `threat_model/` folder (see [Threat modeling with Threagile](#threat-modeling-with-threagile)) and the `answers.txt`.
