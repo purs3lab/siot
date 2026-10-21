@@ -1,12 +1,12 @@
 ---
 type: assignment
-date: 2026-10-19T8:00:00-04:00
+date: 2026-10-21T8:00:00-04:00
 enable: yes
 title: 'Lab #3 - SmartLock V2'
 due_event: 
     type: due
     enable: yes
-    date: 2026-11-13T23:59:00-04:00
+    date: 2026-11-11T23:59:00-04:00
     description: 'Lab #3 due'
 ---
 
