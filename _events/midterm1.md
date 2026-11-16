@@ -5,7 +5,7 @@ description: 'Midterm (In class, closed book, 50 min).'
 hide_from_announcments: true
 ---
 **Topics:**
-- TBA
+- All topics covered till 23rd September
 
 **Style:**
 - On paper --- old style.
